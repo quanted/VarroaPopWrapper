@@ -25,15 +25,15 @@
 
 
 RunVarroaPopLocal <- function(parameters,
-                         exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper"),
-                         vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper"),
-                         in_path = system.file("varroapop_files","input",package="VarroaPopWrapper"),
-                         in_filename = "vp_input.txt",
-                         log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper"),
-                         out_path = system.file("varroapop_files","output",package="VarroaPopWrapper"),
-                         out_filename = "vp_results.txt",
-                         save_files = FALSE,
-                         logs = FALSE, verbose = FALSE){
+                              exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper"),
+                              vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper"),
+                              in_path = system.file("varroapop_files","input",package="VarroaPopWrapper"),
+                              in_filename = "vp_input.txt",
+                              log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper"),
+                              out_path = system.file("varroapop_files","output",package="VarroaPopWrapper"),
+                              out_filename = "vp_results.txt",
+                              save_files = FALSE,
+                              logs = FALSE, verbose = FALSE){
 
   print(exe_file)
   write_vp_input(parameters, in_path, in_filename, verbose)
@@ -71,6 +71,7 @@ RunVarroaPopLocal <- function(parameters,
 RunVarroaPop <- function(parameters){
   if(is.null(names(parameters))) stop("You must supply a named vector or list of parameters")
   exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper")
+  #exe_file = "C:/varroapop_files/exe/VarroaPop.exe"
   if(exe_file == "") stop("Cannot find exe file")
   vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper")
   in_path = system.file("varroapop_files","input",package="VarroaPopWrapper")
