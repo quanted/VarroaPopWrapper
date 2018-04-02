@@ -71,9 +71,6 @@ RunVarroaPopLocal <- function(parameters,
 RunVarroaPop <- function(parameters){
   if(is.null(names(parameters))) stop("You must supply a named vector or list of parameters")
   exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper")
-  #exe_file = "C:/varroapop_files/exe/VarroaPop.exe"
-  print(exe_file)
-  print("test")
   if(exe_file == "") stop("Cannot find exe file")
   vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper")
   in_path = system.file("varroapop_files","input",package="VarroaPopWrapper")
