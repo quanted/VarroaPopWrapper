@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1522689558180.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2892748917",
+    "id" : "9625D6B4",
+    "lastKnownWriteTime" : 1522689565,
+    "last_content_update" : 1522689565853,
+    "path" : "D:/Git_files/VarroaPopWrapper/R/write_input.R",
+    "project_path" : "R/write_input.R",
+    "properties" : {
+        "cursorPosition" : "69,0",
+        "scrollLine" : "43"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

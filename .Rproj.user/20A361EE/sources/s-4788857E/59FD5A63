@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1522689538083.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "59FD5A63",
+    "lastKnownWriteTime" : 1522685068,
+    "last_content_update" : 1522685068,
+    "path" : "D:/Git_files/VarroaPopWrapper/R/simulate_w_exe.R",
+    "project_path" : "R/simulate_w_exe.R",
+    "properties" : {
+        "cursorPosition" : "35,29",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

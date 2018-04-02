@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1522689550439.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B25669A2",
+    "lastKnownWriteTime" : 1522690108,
+    "last_content_update" : 1522690165143,
+    "path" : "D:/Git_files/VarroaPopWrapper/R/run_varroapop.R",
+    "project_path" : "R/run_varroapop.R",
+    "properties" : {
+        "cursorPosition" : "27,61",
+        "scrollLine" : "20"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
