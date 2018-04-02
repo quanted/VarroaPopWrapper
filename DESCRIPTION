@@ -1,6 +1,6 @@
 Package: VarroaPopWrapper
 Type: Package
-Title: Wrapper to run the VarroaPop+Pesticide model
+Title: Wrapper to run the VarroaPop+Pesticide bee colony model
 Version: 0.1.0
 Author: Jeffrey Minucci
 Maintainer: Jeffrey Minucci <jminucci2@gmail.com>

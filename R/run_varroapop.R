@@ -72,6 +72,8 @@ RunVarroaPop <- function(parameters){
   if(is.null(names(parameters))) stop("You must supply a named vector or list of parameters")
   exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper")
   #exe_file = "C:/varroapop_files/exe/VarroaPop.exe"
+  print(exe_file)
+  print("test")
   if(exe_file == "") stop("Cannot find exe file")
   vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper")
   in_path = system.file("varroapop_files","input",package="VarroaPopWrapper")
@@ -81,7 +83,6 @@ RunVarroaPop <- function(parameters){
   out_filename = "vp_results.txt"
   logs = FALSE
   verbose = FALSE
-  print(exe_file)
   write_vp_input(parameters, in_path, in_filename, verbose)
   run_vp(exe_file, vrp_file, paste(in_path,in_filename,sep=""), out_path, out_filename, log_path, logs, verbose)
   to_return <- read_output(out_path, out_filename)
