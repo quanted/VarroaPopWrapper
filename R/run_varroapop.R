@@ -87,7 +87,7 @@ RunVarroaPop <- function(parameters){
   write_vp_input(parameters, in_path, in_filename, weather_file,verbose)
   run_vp(exe_file, vrp_file, paste(in_path,in_filename,sep=""), out_path, out_filename, log_path, logs, verbose)
   to_return <- read_output(out_path, out_filename)
-  file.remove(paste(in_path,in_filename,sep=""),paste(out_path,out_filename,sep=""))
+  #file.remove(paste(in_path,in_filename,sep=""),paste(out_path,out_filename,sep=""))
   return(jsonlite::toJSON(to_return, dataframe="columns"))
 }
 
