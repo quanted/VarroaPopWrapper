@@ -14,6 +14,7 @@
 #' @param params Named vector of VarroaPop inputs to be written to .txt file.
 #' @param in_path Directory to write vp_input.txt file to (optional).
 #' @param in_filename Filename of the written input file. Defaults to 'vp_input.txt'.
+#' @param weather_file Full path to the weather file e.g. C:/VarroaPop/weather.wea (must be .wea/.dvf/.wth)
 #' @param verbose T/F print extra details?
 #'
 #' @return None... writes inputs to a .txt file in in_path for VarroaPop
@@ -27,11 +28,16 @@
 #' @export
 
 write_vp_input <- function(params, in_path = system.file("varroapop_files","input",package="VarroaPopWrapper"),
-                           in_filename = 'vp_input.txt', verbose=F){
+                           in_filename = 'vp_input.txt',
+                           weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
+                                                      package="VarroaPopWrapper"),
+                           verbose=F){
   if(verbose){
     print(paste("Printing input file to:",in_path))
+    print(paste("Weather file location:", weather_file))
   }
   inputs <- paste(names(params),as.character(params),sep="=")
+  inputs <- c(inputs, paste("WeatherFileName",weather_file,sep="="))
   write(inputs, file = paste(in_path, in_filename, sep = ""), sep="")
 }
 

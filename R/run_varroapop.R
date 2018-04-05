@@ -32,11 +32,13 @@ RunVarroaPopLocal <- function(parameters,
                               log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper"),
                               out_path = system.file("varroapop_files","output",package="VarroaPopWrapper"),
                               out_filename = "vp_results.txt",
+                              weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
+                                                         package="VarroaPopWrapper"),
                               save_files = FALSE,
                               logs = FALSE, verbose = FALSE){
 
   print(exe_file)
-  write_vp_input(parameters, in_path, in_filename, verbose)
+  write_vp_input(parameters, in_path, in_filename, weather_file,verbose)
   run_vp(exe_file, vrp_file, paste(in_path,in_filename,sep=""), out_path, out_filename, log_path, logs, verbose)
   to_return <- read_output(out_path, out_filename)
   if(!save_files){
@@ -78,9 +80,11 @@ RunVarroaPop <- function(parameters){
   log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper")
   out_path = system.file("varroapop_files","output",package="VarroaPopWrapper")
   out_filename = "vp_results.txt"
-  logs = FALSE
-  verbose = FALSE
-  write_vp_input(parameters, in_path, in_filename, verbose)
+  weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
+                             package="VarroaPopWrapper")
+  logs = TRUE
+  verbose = TRUE
+  write_vp_input(parameters, in_path, in_filename, weather_file,verbose)
   run_vp(exe_file, vrp_file, paste(in_path,in_filename,sep=""), out_path, out_filename, log_path, logs, verbose)
   to_return <- read_output(out_path, out_filename)
   file.remove(paste(in_path,in_filename,sep=""),paste(out_path,out_filename,sep=""))
