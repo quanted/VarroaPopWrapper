@@ -39,7 +39,7 @@ write_vp_input <- function(params, in_path = system.file("varroapop_files","inpu
                     "eau claire" = system.file("varroapop_files","weather","23503_grid_44.875_lat.wea",package="VarroaPopWrapper"),
                     "jackson" = system.file("varroapop_files","weather","11708_grid_32.375_lat.wea",package="VarroaPopWrapper"),
                     "durham" = system.file("varroapop_files","weather","15057_grid_35.875_lat.wea",package="VarroaPopWrapper"))
-  if(tolower(weather_file) %in% names(weather_locs)) weather_file <- weather_locs[weather_file]
+  if(tolower(weather_file) %in% names(weather_locs)) weather_file <- weather_locs[tolower(weather_file)]
   if(verbose){
     print(paste("Printing input file to:",in_path))
     print(paste("Weather file location:", weather_file))
