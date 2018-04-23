@@ -70,7 +70,7 @@ RunVarroaPopLocal <- function(parameters,
 #' @export
 
 
-RunVarroaPop <- function(parameters){
+RunVarroaPop <- function(parameters, weather_file = 'Columbus'){
   if(is.null(names(parameters))) stop("You must supply a named vector or list of parameters")
   exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper")
   if(exe_file == "") stop("Cannot find exe file")
@@ -80,8 +80,8 @@ RunVarroaPop <- function(parameters){
   log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper")
   out_path = system.file("varroapop_files","output",package="VarroaPopWrapper")
   out_filename = "vp_results.txt"
-  weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
-                             package="VarroaPopWrapper")
+  #weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
+  #                           package="VarroaPopWrapper")
   logs = TRUE
   verbose = TRUE
   write_vp_input(parameters, in_path, in_filename, weather_file,verbose)
