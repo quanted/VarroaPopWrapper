@@ -14,7 +14,8 @@
 #' @param params Named vector of VarroaPop inputs to be written to .txt file.
 #' @param in_path Directory to write vp_input.txt file to (optional).
 #' @param in_filename Filename of the written input file. Defaults to 'vp_input.txt'.
-#' @param weather_file Full path to the weather file e.g. C:/VarroaPop/weather.wea (must be .wea/.dvf/.wth)
+#' @param weather_file Full path to the weather file e.g. C:/VarroaPop/weather.wea (must be .wea/.dvf/.wth) OR
+#'  one of either 'Columbus' (default), 'Sacramento', 'Phoenix', 'Yakima', 'Eau Claire', 'Jackson', or 'Durham'
 #' @param verbose T/F print extra details?
 #'
 #' @return None... writes inputs to a .txt file in in_path for VarroaPop
@@ -29,9 +30,16 @@
 
 write_vp_input <- function(params, in_path = system.file("varroapop_files","input",package="VarroaPopWrapper"),
                            in_filename = 'vp_input.txt',
-                           weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
-                                                      package="VarroaPopWrapper"),
+                           weather_file = 'Columbus',
                            verbose=F){
+  weather_locs <- c("columbus" = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",package="VarroaPopWrapper"),
+                    "sacramento" = system.file("varroapop_files","weather","17482_grid_38.375_lat.wea",package="VarroaPopWrapper"),
+                    "phoenix" = system.file("varroapop_files","weather","12564_grid_33.375_lat.wea",package="VarroaPopWrapper"),
+                    "yakima" = system.file("varroapop_files","weather","25038_grid_46.375_lat.wea",package="VarroaPopWrapper"),
+                    "eau claire" = system.file("varroapop_files","weather","23503_grid_44.875_lat.wea",package="VarroaPopWrapper"),
+                    "jackson" = system.file("varroapop_files","weather","11708_grid_32.375_lat.wea",package="VarroaPopWrapper"),
+                    "durham" = system.file("varroapop_files","weather","15057_grid_35.875_lat.wea",package="VarroaPopWrapper"))
+  if(tolower(weather_file) %in% names(weather_locs)) weather_file <- weather_locs[tolower(weather_file)]
   if(verbose){
     print(paste("Printing input file to:",in_path))
     print(paste("Weather file location:", weather_file))

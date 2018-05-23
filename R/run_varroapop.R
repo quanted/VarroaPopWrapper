@@ -27,10 +27,10 @@
 RunVarroaPopLocal <- function(parameters,
                               exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper"),
                               vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper"),
-                              in_path = system.file("varroapop_files","input",package="VarroaPopWrapper"),
+                              in_path = paste(system.file("varroapop_files",package="VarroaPopWrapper"),"/",sep=""),
                               in_filename = "vp_input.txt",
-                              log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper"),
-                              out_path = system.file("varroapop_files","output",package="VarroaPopWrapper"),
+                              log_path = paste(system.file("varroapop_files","logs",package="VarroaPopWrapper"),"/",sep=""),
+                              out_path = paste(system.file("varroapop_files","output",package="VarroaPopWrapper"),"/",sep=""),
                               out_filename = "vp_results.txt",
                               weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
                                                          package="VarroaPopWrapper"),
@@ -42,8 +42,11 @@ RunVarroaPopLocal <- function(parameters,
   run_vp(exe_file, vrp_file, paste(in_path,in_filename,sep=""), out_path, out_filename, log_path, logs, verbose)
   to_return <- read_output(out_path, out_filename)
   if(!save_files){
-    file.remove(paste(in_path,in_filename,sep=""), paste(log_path,"vp_log.txt",sep=""),
-                paste(out_path,out_filename,sep=""))
+    if(logs){
+      file.remove(paste(in_path,in_filename,sep=""), paste(log_path,"vp_log.txt",sep=""),
+                  paste(out_path,out_filename,sep=""))}
+    else{
+      file.remove(paste(in_path,in_filename,sep=""),paste(out_path,out_filename,sep=""))}
   }
   return (to_return)
 
@@ -51,10 +54,10 @@ RunVarroaPopLocal <- function(parameters,
 }
 
 
-#' Run the VarroaPop honey bee colony model
+#' Run the VarroaPop honey bee colony model on a server via opencpu.
 #'
 #' Function to run the VarroaPop honey bee colony model for a given set of parameters. Currently using
-#' default weather from Columbus, Ohio 1990-2015.
+#' default weather from Columbus, Ohio 1990-2015. Optimized to run on the opencpu platform.
 #'
 #'
 #' @return A dataframe where each column is a VarroaPop output and rows are daily values (with the first row
@@ -70,18 +73,18 @@ RunVarroaPopLocal <- function(parameters,
 #' @export
 
 
-RunVarroaPop <- function(parameters){
+RunVarroaPop <- function(parameters, weather_file = 'Columbus'){
   if(is.null(names(parameters))) stop("You must supply a named vector or list of parameters")
   exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper")
   if(exe_file == "") stop("Cannot find exe file")
   vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper")
-  in_path = system.file("varroapop_files","input",package="VarroaPopWrapper")
+  in_path = paste(system.file("varroapop_files",package="VarroaPopWrapper"),"/",sep="")
   in_filename = "vp_input.txt"
-  log_path = system.file("varroapop_files","logs",package="VarroaPopWrapper")
-  out_path = system.file("varroapop_files","output",package="VarroaPopWrapper")
+  log_path = paste(system.file("varroapop_files",package="VarroaPopWrapper"),"/",sep="")
+  out_path = paste(system.file("varroapop_files",package="VarroaPopWrapper"),"/",sep="")
   out_filename = "vp_results.txt"
-  weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
-                             package="VarroaPopWrapper")
+  #weather_file = system.file("varroapop_files","weather","18815_grid_39.875_lat.wea",
+  #                           package="VarroaPopWrapper")
   logs = TRUE
   verbose = TRUE
   write_vp_input(parameters, in_path, in_filename, weather_file,verbose)
