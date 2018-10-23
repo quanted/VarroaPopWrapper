@@ -2,9 +2,9 @@
 % Please edit documentation in R/run_varroapop.R
 \name{RunVarroaPop}
 \alias{RunVarroaPop}
-\title{Run the VarroaPop honey bee colony model}
+\title{Run the VarroaPop honey bee colony model on a server via opencpu.}
 \usage{
-RunVarroaPop(parameters)
+RunVarroaPop(parameters, weather_file = "Columbus")
 }
 \arguments{
 \item{parameters}{Named vector or list of VarroaPop inputs to be written to .txt file.}
@@ -15,7 +15,7 @@ A dataframe where each column is a VarroaPop output and rows are daily values (w
 }
 \description{
 Function to run the VarroaPop honey bee colony model for a given set of parameters. Currently using
-default weather from Columbus, Ohio 1990-2015.
+default weather from Columbus, Ohio 1990-2015. Optimized to run on the opencpu platform.
 }
 \examples{
  parameters <- c("ICWorkerBrood"=1000, "ICWorkerAdult"=1500)
