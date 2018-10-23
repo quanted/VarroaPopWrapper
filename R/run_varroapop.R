@@ -21,6 +21,7 @@
 #' @param verbose T/F print extra details?
 
 #' @author Jeffrey M Minucci, \email{jminucci2@@gmail.com}
+#'
 #' @export
 #'
 
