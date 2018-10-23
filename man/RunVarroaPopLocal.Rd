@@ -7,11 +7,14 @@
 RunVarroaPopLocal(parameters, exe_file = system.file("varroapop_files", "exe",
   "VarroaPop.exe", package = "VarroaPopWrapper"),
   vrp_file = system.file("varroapop_files", "exe", "default.vrp", package =
-  "VarroaPopWrapper"), in_path = system.file("varroapop_files", "input",
-  package = "VarroaPopWrapper"), in_filename = "vp_input.txt",
-  log_path = system.file("varroapop_files", "logs", package =
-  "VarroaPopWrapper"), out_path = system.file("varroapop_files", "output",
-  package = "VarroaPopWrapper"), out_filename = "vp_results.txt",
+  "VarroaPopWrapper"), in_path = paste(system.file("varroapop_files", package
+  = "VarroaPopWrapper"), "/", sep = ""), in_filename = "vp_input.txt",
+  log_path = paste(system.file("varroapop_files", "logs", package =
+  "VarroaPopWrapper"), "/", sep = ""),
+  out_path = paste(system.file("varroapop_files", "output", package =
+  "VarroaPopWrapper"), "/", sep = ""), out_filename = "vp_results.txt",
+  weather_file = system.file("varroapop_files", "weather",
+  "18815_grid_39.875_lat.wea", package = "VarroaPopWrapper"),
   save_files = FALSE, logs = FALSE, verbose = FALSE)
 }
 \arguments{
