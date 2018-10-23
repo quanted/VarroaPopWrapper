@@ -5,7 +5,8 @@
 \title{Write a VarroaPop input file from a named list or vector}
 \usage{
 write_vp_input(params, in_path = system.file("varroapop_files", "input",
-  package = "VarroaPopWrapper"), in_filename = "vp_input.txt", verbose = F)
+  package = "VarroaPopWrapper"), in_filename = "vp_input.txt",
+  weather_file = "Columbus", verbose = F)
 }
 \arguments{
 \item{params}{Named vector of VarroaPop inputs to be written to .txt file.}
@@ -13,6 +14,9 @@ write_vp_input(params, in_path = system.file("varroapop_files", "input",
 \item{in_path}{Directory to write vp_input.txt file to (optional).}
 
 \item{in_filename}{Filename of the written input file. Defaults to 'vp_input.txt'.}
+
+\item{weather_file}{Full path to the weather file e.g. C:/VarroaPop/weather.wea (must be .wea/.dvf/.wth) OR
+one of either 'Columbus' (default), 'Sacramento', 'Phoenix', 'Yakima', 'Eau Claire', 'Jackson', or 'Durham'}
 
 \item{verbose}{T/F print extra details?}
 }
