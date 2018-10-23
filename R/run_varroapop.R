@@ -29,7 +29,7 @@
 RunVarroaPopLocal <- function(parameters,
                               exe_file = system.file("varroapop_files","exe","VarroaPop.exe",package="VarroaPopWrapper"),
                               vrp_file = system.file("varroapop_files","exe","default.vrp",package="VarroaPopWrapper"),
-                              in_path = paste(system.file("varroapop_files",package="VarroaPopWrapper"),"/",sep=""),
+                              in_path = paste(system.file("varroapop_files","input",package="VarroaPopWrapper"),"/",sep=""),
                               in_filename = "vp_input.txt",
                               log_path = paste(system.file("varroapop_files","logs",package="VarroaPopWrapper"),"/",sep=""),
                               out_path = paste(system.file("varroapop_files","output",package="VarroaPopWrapper"),"/",sep=""),
