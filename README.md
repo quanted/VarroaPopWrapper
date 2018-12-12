@@ -22,11 +22,11 @@ www.github.com/quanted/VarroaPy
 
 Create a named vector of VarroaPop inputs. Parameters that are not set here will take the default values from the VarroaPop session file found at 'VarroaPopWrapper/inst/varroapop_files/exe/default.vrp'. The VarroaPopWrapper folder will be inside the library where your R packages get installed. If you'd like to modify these defaults you can open this session file in the VarroaPop GUI, edit it, and save it. 
 
-    params = (ICWorkerAdults = 15000, ICWorkerBrood = 10000, ICWorkerLarave = 13000, SimStart = "04/30/2015")
+    params <- c(ICWorkerAdults = 15000, ICWorkerBrood = 10000, ICWorkerLarave = 13000, SimStart = "04/30/2015")
 
 Also specify either a path to a valid weather file, or one of the default locations: "Columbus" (OH; default), "Sacramento", "Phoenix", "Yakima", "Eau Claire", "Jackson" (MS), or "Durham"
 
-    weather = "Yakima"
+    weather <- "Yakima"
     
 Then just use the RunVarroaPopLocal function, which will return a dataframe of the VarroaPop model output:
 
